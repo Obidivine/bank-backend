@@ -4,16 +4,24 @@ const User = require('../models/User'); // Replace with your user schema
 
 // Create a user
 router.post('/register', async (req, res) => {
-    const { name, email, password } = req.body;
+    const { personalInfo, residentialAddress, loginInfo, identityInfo } = req.body;
 
     try {
-        const newUser = new User({ name, email, password });
+        const newUser = new User({
+            personalInfo,
+            residentialAddress,
+            loginInfo,
+            identityInfo,
+        });
+
         await newUser.save();
         res.status(201).json({ message: 'User registered successfully', user: newUser });
     } catch (error) {
+        console.error("Error registering user:", error);
         res.status(500).json({ error: 'Failed to register user' });
     }
 });
+
 
 // Get all users
 router.get('/', async (req, res) => {
