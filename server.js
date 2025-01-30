@@ -32,4 +32,8 @@ app.use((err, req, res, next) => {
 
 // Start Server
 const PORT = process.env.PORT || 5000;
+<<<<<<< HEAD
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+=======
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+>>>>>>> 576207036a463b6acb8707915f403e06ba170d95
