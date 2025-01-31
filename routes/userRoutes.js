@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User'); // Replace with your user schema
-<<<<<<< HEAD
 const bcrypt = require('bcryptjs'); // Add bcryptjs
-=======
->>>>>>> 576207036a463b6acb8707915f403e06ba170d95
+
+
 
 // Create a user
 router.post('/register', async (req, res) => {
@@ -37,8 +36,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
+
 module.exports = router;
-=======
+
 module.exports = router;
->>>>>>> 576207036a463b6acb8707915f403e06ba170d95

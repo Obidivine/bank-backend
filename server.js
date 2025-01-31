@@ -16,13 +16,19 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
   .then(() => console.log('✅ MongoDB Connected...'))
   .catch(err => {
       console.error('❌ MongoDB Connection Failed:', err);
-      process.exit(1); // Exit the process if DB connection fails
+      process.exit(1);
   });
-
 
 // Import Routes
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
+
+// ✅ Add the /submit-form route
+app.post('/submit-form', (req, res) => {
+    const formData = req.body;
+    console.log('Received form data:', formData);
+    res.status(200).json({ message: 'Form submitted successfully!', data: formData });
+});
 
 // Global Error Handling Middleware
 app.use((err, req, res, next) => {
@@ -32,8 +38,4 @@ app.use((err, req, res, next) => {
 
 // Start Server
 const PORT = process.env.PORT || 5000;
-<<<<<<< HEAD
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-=======
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
->>>>>>> 576207036a463b6acb8707915f403e06ba170d95
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
